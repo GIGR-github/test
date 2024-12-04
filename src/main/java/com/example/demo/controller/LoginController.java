@@ -10,6 +10,6 @@ public class LoginController {
     @GetMapping("/login")
     void login() {
         System.out.println("login");
-        System.out.println("looger is added");
+
     }
 }
