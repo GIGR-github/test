@@ -1,4 +1,4 @@
-name: Build and Verify Spring Boot Application
+name: Build and Test with Docker Compose Plugin
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-verify:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,14 +17,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Docker Buildx
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      # Step 2: Enable Docker Compose plugin
+      - name: Enable Docker Compose plugin
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose-plugin
+          docker compose version
 
-      # Step 3: Build and verify using Docker Compose
-      - name: Build and verify application
-        run: docker-compose up --abort-on-container-exit --exit-code-from app
+      # Step 3: Run tests using Docker Compose
+      - name: Run tests
+        run: docker compose up --abort-on-container-exit --exit-code-from app
 
       # Step 4: Tear down services
       - name: Tear down services
-        run: docker-compose down
+        run: docker compose down
