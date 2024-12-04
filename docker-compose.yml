@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: spring-boot-verify
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app  # Mount code for dynamic updates
+    working_dir: /app
+    environment:
+      SPRING_PROFILES_ACTIVE: test  # Use the test profile
+    command: mvn clean verify  # Build and verify tests
