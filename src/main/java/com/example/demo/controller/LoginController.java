@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
     @GetMapping("/login")
     void login() {
+        String nume = null;
+        System.out.println(nume.startsWith("sdf"));
         System.out.println("login");
 
     }
