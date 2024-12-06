@@ -42,4 +42,5 @@ jobs:
           mvn sonar:sonar \
             -Dsonar.projectKey=GIGR-github_test \
             -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.organization=gigr-github \
             -Dsonar.login=33163c3db42ff71766ed143fd49665f7b271df2b
