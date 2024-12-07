@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class LoginController {
     @GetMapping("/login")
-    void login() {
-        String nume = null;
-        System.out.println(nume.startsWith("sdf"));
-        System.out.println("login");
+    String login() {
+        return "hello Alina";
 
     }
 }
