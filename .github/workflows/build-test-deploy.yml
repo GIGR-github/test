@@ -31,6 +31,10 @@ jobs:
       # Step 4: Build and test
       - name: Build and test with Maven
         run: mvn clean package
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       # Step 4: Deploy the application to the Droplet
       - name: Deploy to Droplet
