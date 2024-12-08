@@ -41,6 +41,6 @@ jobs:
         run: |
           scp -o StrictHostKeyChecking=no target/*.jar root@167.71.72.179:/home/alina.jar
           ssh -o StrictHostKeyChecking=no root@167.71.72.179 <<EOF
-          sudo systemctl stop alina || true
-          sudo systemctl start alina
+          sudo systemctl stop alina.service || true
+          sudo systemctl start alina.service
           EOF
