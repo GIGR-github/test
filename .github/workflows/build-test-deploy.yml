@@ -1,0 +1,37 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment on pushes to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up SSH
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Step 3: Build the application
+      - name: Build the Spring Boot app
+        run: |
+          sudo apt update
+          sudo apt install openjdk-17-jdk -y
+          ./mvnw clean package
+
+      # Step 4: Deploy the application to the Droplet
+      - name: Deploy to Droplet
+        run: |
+          scp target/*.jar root@167.71.72.179:/home/alina.jar
+          ssh root@167.71.72.179 <<EOF
+          sudo systemctl stop your-app || true
+          sudo systemctl start your-app
+          EOF
