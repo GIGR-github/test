@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
     @GetMapping("/login")
     String login() {
-        return "hello Alina";
+        return "hello Nadiya";
 
     }
 }
