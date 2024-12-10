@@ -38,9 +38,14 @@ jobs:
 
       # Step 4: Deploy the application to the Droplet
       - name: Deploy to Droplet
+        env:
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
           scp -o StrictHostKeyChecking=no target/*.jar root@167.71.72.179:/home/alina.jar
           ssh -o StrictHostKeyChecking=no root@167.71.72.179 <<EOF
+          export DB_USERNAME=${DB_USERNAME}
+          export DB_PASSWORD=${DB_PASSWORD}
           sudo systemctl stop alina.service || true
           sudo systemctl start alina.service
           EOF
