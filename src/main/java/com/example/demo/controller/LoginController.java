@@ -1,15 +1,28 @@
 package com.example.demo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.dto.PersonSaveDto;
+import com.example.demo.model.Person;
+import com.example.demo.repository.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
 public class LoginController {
-    @GetMapping("/login")
-    String login() {
-        return "hello FROM Alina";
+    private final PersonRepository personRepository;
+
+    @Autowired
+    public LoginController(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
+
+    @PostMapping("/save")
+    void login(@RequestBody PersonSaveDto personSaveDto) {
+
+        Person entity = new Person();
+        entity.setName(personSaveDto.getName());
+        entity.setAge(personSaveDto.getAge());
+        personRepository.save(entity);
 
     }
 }
