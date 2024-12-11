@@ -25,4 +25,9 @@ public class LoginController {
         personRepository.save(entity);
 
     }
+
+    @GetMapping("/list")
+    String getUsers() {
+        return "All users from database";
+    }
 }
