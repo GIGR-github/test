@@ -30,4 +30,9 @@ public class LoginController {
     String getUsers() {
         return "All users from database";
     }
+
+    @GetMapping("/delete")
+    String delete() {
+        return "Delete user";
+    }
 }
