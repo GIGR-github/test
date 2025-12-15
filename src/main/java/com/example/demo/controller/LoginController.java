@@ -35,4 +35,8 @@ public class LoginController {
     String delete() {
         return "Delete user";
     }
+
+    void run(){
+        System.out.println("from another comp");
+    }
 }
