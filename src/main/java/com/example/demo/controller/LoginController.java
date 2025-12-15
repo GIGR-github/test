@@ -39,4 +39,8 @@ public class LoginController {
     void run(){
         System.out.println("from another comp");
     }
+
+    void auth() {
+        System.out.println("Auth user");
+    }
 }
