@@ -40,7 +40,7 @@ public class LoginController {
         System.out.println("from another comp");
     }
 
-    void auth() {
+    void authUser() {
         System.out.println("Auth user");
     }
 }
