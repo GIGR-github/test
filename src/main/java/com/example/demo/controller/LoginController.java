@@ -47,4 +47,11 @@ public class LoginController {
         System.out.println("Delete user");
         System.out.println("Done");
     }
+
+    void verify() {
+        System.out.println("Verify user data");
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Verify " + i);
+        }
+    }
 }
