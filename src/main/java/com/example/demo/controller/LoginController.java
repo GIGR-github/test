@@ -43,7 +43,8 @@ public class LoginController {
     void authUser() {
         System.out.println("Auth user");
     }
-    void deleteUser(){
+    void deleteUserRecord(){
         System.out.println("Delete user");
+        System.out.println("Done");
     }
 }
