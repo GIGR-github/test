@@ -4,6 +4,7 @@ public class PersonSaveDto {
 
     private String name;
     private int age;
+    private String salary;
 
     public PersonSaveDto(String name, int age) {
         this.name = name;
