@@ -54,4 +54,8 @@ public class LoginController {
             System.out.println("Verify " + i);
         }
     }
+
+    void helloWorld() {
+        System.out.println("hello");
+    }
 }
