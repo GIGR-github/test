@@ -14,9 +14,6 @@ public class Person {
     private String name;
     private int age;
 
-    private int amount;
-    private String bio;
-
     public void setId(Long id) {
         this.id = id;
     }
