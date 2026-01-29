@@ -58,4 +58,8 @@ public class LoginController {
     void helloWorld() {
         System.out.println("hello");
     }
+
+    void mergeConflict() {
+        System.out.println("hello main");
+    }
 }
