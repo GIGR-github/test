@@ -61,5 +61,6 @@ public class LoginController {
 
     void mergeConflict() {
         System.out.println("hello main second message");
+        System.out.println("hello main from tom branch");
     }
 }
